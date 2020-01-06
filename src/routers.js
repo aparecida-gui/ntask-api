@@ -1,12 +1,13 @@
 import express from 'express';
-const router = express.Router()
+import controller from './controller';
+const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    status: 'Bem-Vindo NTalk API',
-  })
-});
+router.get('/', controller.showTask);
 
-console.log('arquivo route.js rodando');
+router.post('/', controller.createTask);
+router.put('/', controller.changeTask);
+router.delete('/', controller.deleteTask);
+router.get('/', controller.checksUser);
 
+controller
 export default router;
