@@ -9,5 +9,4 @@ router.put('/', controller.changeTask);
 router.delete('/', controller.deleteTask);
 router.get('/', controller.checksUser);
 
-controller
 export default router;
