@@ -46,12 +46,23 @@ const changeTask = (req, res, next) => {
   next();
 }
 
-const deleteTask = (req, res, next) => {
-  res.status(200).json({
-    status: 'metodo deleteTask'
-  })
-  next();
-}
+const deleteTask = (req, res) => {
+  const id = req.params.id;
+
+  try {
+    Task.deleteOne({ _id: id }).then(id => {
+      res.status(200).json({
+        message: 'a tarefa foi removida com sucesso',
+        id: id
+      });
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: 'O produto não foi removido',
+      error: error
+    });
+  }
+};
 
 const checksUser = (req, res, next) => {
   res.status(200).json({
