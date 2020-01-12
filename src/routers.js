@@ -6,7 +6,7 @@ router.get('/', controller.showTask);
 
 router.post('/', controller.createTask);
 router.put('/', controller.changeTask);
-router.delete('/', controller.deleteTask);
+router.delete('/:id', controller.deleteTask);
 router.get('/', controller.checksUser);
 
 export default router;
