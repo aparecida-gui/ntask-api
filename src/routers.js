@@ -1,12 +1,13 @@
 import express from 'express';
-import controller from './controller';
+import TaskController from './TaskController';
+import UserController from './UserController';
 const router = express.Router();
 
-router.get('/', controller.showTask);
+router.get('/', TaskController.showTask);
 
-router.post('/', controller.createTask);
-router.put('/:idTask', controller.changeTask);
-router.delete('/:idTask', controller.deleteTask);
-router.get('/', controller.checksUser);
+router.post('/', TaskController.createTask);
+router.put('/:idTask', TaskController.changeTask);
+router.delete('/:idTask', TaskController.deleteTask);
+router.post('/user/register', UserController.checksUser);
 
 export default router;
