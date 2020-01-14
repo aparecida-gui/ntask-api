@@ -55,7 +55,7 @@ const deleteTask = (req, res) => {
   const id = req.params.id;
 
   try {
-    Task.deleteOne({ _id: id }).then(id => {
+    Task.remove({ _id: id }).then(id => {
       res.status(200).json({
         message: 'a tarefa foi removida com sucesso',
         id: id
@@ -69,16 +69,9 @@ const deleteTask = (req, res) => {
   }
 };
 
-const checksUser = (req, res) => {
-  res.status(200).json({
-    status: 'metodo checksUser'
-  });
-};
-
 export default {
   showTask,
   createTask,
   changeTask,
-  deleteTask,
-  checksUser
+  deleteTask
 };
