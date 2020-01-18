@@ -9,5 +9,6 @@ router.post('/', TaskController.createTask);
 router.put('/:idTask', TaskController.changeTask);
 router.delete('/:idTask', TaskController.deleteTask);
 router.post('/user/register', UserController.checksUser);
+router.post('/user/authenticate', UserController.authenticationUser);
 
 export default router;
