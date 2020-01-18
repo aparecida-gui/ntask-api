@@ -1,4 +1,9 @@
-# ntask-api 
-<p>Task API with authentication using JWT.</p>
-<p>Developed using node.js, moongose and mongo cloud database service.</p>
-<p>Front-end using react.js</p>
+## API of tasks daily
+
+## Technologies 
+**back-end** 
+* server **node.js**, 
+* database nosql **mongodb** 
+* encrypt password **bcrypt** 
+* token of access the app **JWT**
+* manage routes **express**
