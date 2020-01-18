@@ -10,8 +10,8 @@ const Task = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: true,
-    min: '2020-01-01'
+    min: '2020-01-01',
+    default: Date.now
   }
 });
 
