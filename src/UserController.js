@@ -5,12 +5,14 @@ const checksUser = async (req, res) => {
   req.body.password = await encrypted(req.body.password);
 
   try {
-    const user = User.create(req.body);
-    user.then(userData => {
-      res.status(201).json({ message: 'Created User.', userData });
-    });
+    const user = User.create(req.body.name, req.body.email, req.body.password);
+    user
+      .then(userData => {
+        res.status(201).json({ message: 'Created User.', userData });
+      })
+      .catch(() => res.status(403).json({ error: 'user exist' }));
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(404).json({error: error});
   }
 };
 
