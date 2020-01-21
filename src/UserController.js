@@ -6,14 +6,16 @@ const checksUser = async (req, res) => {
   req.body.password = await bcryptPassword(req.body.password);
 
   try {
-    const user = User.create(req.body.name, req.body.email, req.body.password);
+    const user = User.create(req.body);
+    const tokenGeneral = await token({ id: user.id });
+    console.log('tokenGeneral: ', tokenGeneral);
     user
       .then(userData => {
-        res.status(201).json({ message: 'Created User.', userData });
+        res.status(201).json({ message: 'Created User.', userData, tokenGeneral });
       })
       .catch(() => res.status(403).json({ error: 'user exist' }));
   } catch (error) {
-    res.status(404).json({error: error});
+    res.status(404).json({ error: error });
   }
 };
 
