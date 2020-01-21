@@ -1,8 +1,9 @@
 import User from './user';
-import encrypted from './encrypted';
+import bcrypt from 'bcrypt';
+import { bcryptPassword, token } from './help';
 
 const checksUser = async (req, res) => {
-  req.body.password = await encrypted(req.body.password);
+  req.body.password = await bcryptPassword(req.body.password);
 
   try {
     const user = User.create(req.body);
@@ -14,18 +15,24 @@ const checksUser = async (req, res) => {
   }
 };
 
-const authenticationUser = (req, res) => {
-  const user = User.findOne(req.body).select('+password');
+const authenticationUser = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email }).select('+password');
 
-  user
-    .then(authUser => {
-      return res.status(200).json({ message: 'Welcome', user: authUser.email });
-    })
-    .catch(() => {
+  if (await user) {
+    if (await bcrypt.compare(password, user.password)) {
+      const tokenGeneral = await token({ id: user.id });
+      return res
+        .status(200)
+        .json({ message: 'Welcome app NTask', user: user.name, tokenGeneral });
+    } else {
       return res.status(400).json({
-        errorMessage: 'email or password not register.'
+        errorMessage: 'password not register.'
       });
-    });
+    }
+  } else {
+    return res.status(400).json({ errorMessage: 'email not register.' });
+  }
 };
 
 export default {
