@@ -14,7 +14,7 @@
 #### Clone the repository
   git clone https://github.com/Suele/ntask-api.git
 
-#### Install dependicies
+#### Install dependency
   npm install
 
 #### rum project
