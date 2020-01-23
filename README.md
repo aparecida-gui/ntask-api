@@ -8,14 +8,14 @@
 * token of access the app **JWT**
 * manage routes **express**
   
-  **Test**
+**Test**
 * jest
 
-- Clone the repository
-$ git clone https://github.com/Suele/ntask-api.git
+#### Clone the repository
+  git clone https://github.com/Suele/ntask-api.git
 
-- Install dependicies
-$ npm install
+#### Install dependicies
+  npm install
 
-- rum project
-$ npm run dev  
+#### rum project
+  npm run dev  
