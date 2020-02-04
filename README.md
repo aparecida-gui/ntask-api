@@ -11,7 +11,8 @@
 **Test**
 * jest
 
-* send email **Sendgrid**
+**Sendgrid**
+* send email 
 The sendgrid is used at application for send email with a new password(reset password).
 
 como utilizar
