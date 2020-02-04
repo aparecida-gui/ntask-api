@@ -25,6 +25,6 @@ como utilizar
   npm run dev  
   
 #### For used sendgrid 
-create account at the sendgrid.
-Generate the API key on the sendgrid website
-Create a .env configuration file with the API key and your email.
+<p>Create account at the sendgrid.</p>
+<p>Generate the API key on the sendgrid website</p>
+<p>Create a .env configuration file with the API key and your email.</p>
